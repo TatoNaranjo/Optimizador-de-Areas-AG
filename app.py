@@ -105,7 +105,6 @@ with col2:
                 ax1.grid(True)
                 st.pyplot(fig1)
 
-                # ✨ NUEVO: Gráfico de Distribución con Espacio Vacío
                 items_en_solucion = [item for q, item in zip(mejor_solucion, articulos_seleccionados) if q > 0]
                 areas_solucion = [q * item['area'] for q, item in zip(mejor_solucion, articulos_seleccionados) if q > 0]
                 nombres_solucion = [f"{item['nombre']}\n({q} uds)" for q, item in zip(mejor_solucion, articulos_seleccionados) if q > 0]
