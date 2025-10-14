@@ -35,10 +35,8 @@ with col1:
     st.subheader("Parámetros del Algoritmo")
     area_maxima = st.number_input("Área Máxima del Espacio (m²)", 1.0, 500.0, 50.0)
     
-    # ✨ NUEVO: Selector de método de selección
     selection_method = st.selectbox("Método de Selección", ('torneo', 'ruleta'))
     
-    # ✨ NUEVO: Toggle para elitismo
     elitism_on = st.toggle("Activar Elitismo", value=True)
     elitismo_val = 0
     if elitism_on:
@@ -49,7 +47,6 @@ with col1:
     prob_cruce = st.slider("Probabilidad de Cruce", 0.0, 1.0, 0.6, 0.05)
     prob_mutacion = st.slider("Probabilidad de Mutación", 0.0, 1.0, 0.15, 0.01)
 
-    # ✨ NUEVO: Panel de edición del Catálogo con Checkbox de selección
     st.subheader("Catálogo de Artículos")
     df_catalogo = pd.DataFrame(initial_catalogo)
     df_catalogo.insert(0, "Seleccionar", True) # Añade la columna de checkboxes

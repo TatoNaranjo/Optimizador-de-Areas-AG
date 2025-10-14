@@ -19,7 +19,6 @@ class GeneticAlgorithm:
         self.elitismo = elitismo
         self.selection_method = selection_method # <-- Guardamos el método
 
-    # ... (los métodos _crear_individuo y _evaluar_individuo no cambian) ...
     def _crear_individuo(self):
         return [random.randint(0, item["stock"]) for item in self.catalogo]
 
@@ -37,7 +36,6 @@ class GeneticAlgorithm:
         mejor_idx = max(seleccionados, key=lambda i: fitness_vals[i])
         return deepcopy(poblacion[mejor_idx])
 
-    # ✨ NUEVO: Método de selección por Ruleta
     def _seleccionar_ruleta(self, poblacion, fitness_vals):
         # Asegurarse de que todos los fitness son positivos para la ruleta
         min_fitness = min(fitness_vals)
@@ -56,7 +54,6 @@ class GeneticAlgorithm:
                 return deepcopy(ind)
         return deepcopy(poblacion[-1]) # Fallback
 
-    # ... (los métodos _cruzar_uniforme y _mutar no cambian) ...
     def _cruzar_uniforme(self, padre1, padre2):
         hijo1, hijo2 = padre1[:], padre2[:]
         for i in range(self.num_articulos):
